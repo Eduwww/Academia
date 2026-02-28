@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/3df637a2f2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Fit Academia</title>
+</head>
+<body>
+    <header>
+        <div class="menu-content">
+           <h1 class="logo">Fit Academia</h1>
+            <nav class="header-menu">
+                <ul class="list-itens">
+                    <li><a href="#">home</a></li>
+                    <li><a href="#">serviços</a></li>
+                    <li><a href="#">aulas</a></li>
+                    <li><a href="#">agenda</a></li>
+                    <li><a href="#">contatos</a></li>
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="main-content">
+            <h1 class="primary-text">O esforço é grande, mas a recompensa é muito maior.</h1>
+            <h2 class="second-text">Inscreva-se agora e mude de vida!</h2>
+            <div class="btns">
+                <button class="btn-exp">Agendar aula experimental</button>
+                <button class="btn-personal">Fale com um Personal Trainer</button>
+            </div>
+        </div>
+    </main>
+    <script>
+        (function(){
+            document.addEventListener('DOMContentLoaded', function(){
+                fetch('images/list.json')
+                    .then(res => res.json())
+                    .then(images => {
+                        if (!Array.isArray(images) || images.length === 0) return;
+                        const chosen = images[Math.floor(Math.random() * images.length)];
+                        document.body.style.backgroundImage = `linear-gradient(rgba(38, 38, 38, 0.8), rgba(0, 0, 0, 0.8)), url("${chosen}")`;
+                    })
+                    .catch(() => {});
+            });
+        })();
+    </script>
+</body>
+</html>
